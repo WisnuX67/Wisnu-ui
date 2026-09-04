@@ -1973,9 +1973,9 @@ function MugiHub_Library:CreateWindow(Config)
 
 				local CB2 = Custom:Create("TextButton", {
 					Font = Enum.Font.SourceSans, Text = "", AutoButtonColor = false,
-					BackgroundColor3 = Color3.fromRGB(255, 255, 255), BackgroundTransparency = 0.9,
-					BorderSizePixel = 0, AnchorPoint = Vector2.new(1, 0.5),
-					Position = UDim2.new(1, -8, 0.5, 0), Size = UDim2.new(0, 76, 0, 26), Name = "CopyButton", Parent = S
+					BackgroundColor3 = Color3.fromRGB(0, 0, 0), BackgroundTransparency = 0.3,
+										BorderSizePixel = 0, AnchorPoint = Vector2.new(1, 0.5),
+										Position = UDim2.new(1, -7, 0.5, 0), Size = UDim2.new(0, 148, 0, 26), Name = "InputTextBox"
 				})
 				Custom:Create("UICorner", {CornerRadius = UDim.new(0, 5)}, CB2)
 
