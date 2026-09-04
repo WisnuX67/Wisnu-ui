@@ -11,7 +11,7 @@ local Custom = {} do
 		ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 255, 255))
 	})
 
-	Custom.DefaultIcon = "rbxassetid://135368942844516"
+	Custom.DefaultIcon = ""
 
 	function Custom:Create(Name, Properties, Parent)
 		local inst = Instance.new(Name)
@@ -34,7 +34,7 @@ local Custom = {} do
 	end
 
 	function Custom:ResolveIcon(Icon)
-		if Icon == nil or Icon == "" or Icon == "rbxassetid://0" or Icon == "rbxassetid://" then
+		if Icon == nil or Icon == "" or Icon == "" or Icon == "rbxassetid://" then
 			return Custom.DefaultIcon
 		end
 		return Icon
@@ -54,7 +54,7 @@ local function OpenClose()
 		BackgroundTransparency = 1,
 		Position = UDim2.new(0.1021, 0, 0.0743, 0),
 		Size = UDim2.new(0, 44, 0, 44),
-		Image = "rbxassetid://135368942844516",
+		Image = "",
 		Visible = false,
 	}, ScreenGui)
 
@@ -114,7 +114,7 @@ local function CircleClick(Button, X, Y)
 	task.spawn(function()
 		Button.ClipsDescendants = true
 		local Circle = Instance.new("ImageLabel")
-		Circle.Image = "rbxassetid://106471194043211"
+		Circle.Image = ""
 		Circle.ImageColor3 = Color3.fromRGB(80, 80, 80)
 		Circle.ImageTransparency = 0.9
 		Circle.BackgroundTransparency = 1
@@ -292,7 +292,7 @@ function MugiHub_Library:CreateWindow(Config)
 	local TabWidth    = Config[3] or Config["Tab Width"] or 105
 	local SizeUi      = Config[4] or Config.SizeUi      or UDim2.fromOffset(480, 275)
 	local Keybind     = Config[5] or Config.Keybind     or Enum.KeyCode.RightControl
-	local Icon        = Config[6] or Config.Icon        or "rbxassetid://135368942844516"
+	local Icon        = Config[6] or Config.Icon        or ""
 
 	local Funcs = {}
 	local SearchRegistry = {}
@@ -1181,7 +1181,7 @@ function MugiHub_Library:CreateWindow(Config)
 			}, SectionReal)
 
 			local FeatureImg = Custom:Create("ImageLabel", {
-				Image = "rbxassetid://125609963478878",
+				Image = "",
 				AnchorPoint = Vector2.new(0.5, 0.5), BackgroundTransparency = 0.999,
 				BorderSizePixel = 0, Position = UDim2.new(0.5, 0, 0.5, 0),
 				Rotation = -90, Size = UDim2.new(1, 6, 1, 6), Name = "FeatureImg"
@@ -1337,7 +1337,7 @@ function MugiHub_Library:CreateWindow(Config)
 				local Content  = Config[2] or Config.Content  or ""
 				local Icon     = Custom:ResolveIcon(Config[3] or Config.Icon) 
 				if Icon == Custom.DefaultIcon and not (Config[3] or Config.Icon) then
-					Icon = "rbxassetid://7734010488"
+					Icon = ""
 				end
 				local Callback = Config[4] or Config.Callback or function() end
 				local SF = {}
@@ -1744,7 +1744,7 @@ function MugiHub_Library:CreateWindow(Config)
 					Position = UDim2.new(0, 5, 0.5, 0), Size = UDim2.new(1, -30, 1, -8), Name = "OptionSelecting"
 				}, SOF)
 				Custom:Create("ImageLabel", {
-					Image = "rbxassetid://90200523188815", ImageColor3 = Color3.fromRGB(231, 231, 231),
+					Image = "", ImageColor3 = Color3.fromRGB(231, 231, 231),
 					AnchorPoint = Vector2.new(1, 0.5), BackgroundTransparency = 0.999,
 					BorderSizePixel = 0, Position = UDim2.new(1, 0, 0.5, 0), Size = UDim2.new(0, 25, 0, 25)
 				}, SOF)
@@ -2057,7 +2057,7 @@ function MugiHub_Library:CreateWindow(Config)
 				local Chev
 				if IsAcc then
 					Chev = Custom:Create("ImageLabel", {
-						Image = "rbxassetid://125609963478878", ImageColor3 = Custom.ColorRGB,
+						Image = "", ImageColor3 = Custom.ColorRGB,
 						AnchorPoint = Vector2.new(1,0.5), BackgroundTransparency = 1, BorderSizePixel = 0,
 						Position = UDim2.new(1,-10,0,15), Rotation = Expanded and 90 or -90,
 						Size = UDim2.new(0,12,0,12), Name = "Chevron", Parent = RM
