@@ -12,7 +12,7 @@ local Custom = {} do
 		ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 255, 255))
 	})
 
-	Custom.DefaultIcon = "rbxassetid://135368942844516"
+	Custom.DefaultIcon = "rbxassetid://6031229492"
 
 	function Custom:Create(Name, Properties, Parent)
 		local inst = Instance.new(Name)
@@ -148,8 +148,8 @@ local function CircleClick(Button, X, Y)
 	end)
 end
 
-local MugiHub_Library = {}
-MugiHub_Library.Unloaded = false
+local WisnuLib = {}
+WisnuLib.Unloaded = false
 
 local NotifGui
 local NotifContainer
@@ -182,7 +182,7 @@ local function EnsureNotifGui()
 	}, NotifContainer)
 end
 
-function MugiHub_Library:SetNotification(Config)
+function WisnuLib:SetNotification(Config)
 	EnsureNotifGui()
 
 	local Text  = Config.Content or Config[1] or ""
@@ -291,7 +291,7 @@ function MugiHub_Library:SetNotification(Config)
 	return NotifFuncs
 end
 
-function MugiHub_Library:CreateWindow(Config)
+function WisnuLib:CreateWindow(Config)
 	local Title       = Config[1] or Config.Title       or ""
 	local Description = Config[2] or Config.Description or ""
 	local TabWidth    = Config[3] or Config["Tab Width"] or 105
@@ -302,7 +302,7 @@ function MugiHub_Library:CreateWindow(Config)
 	local Funcs = {}
 	local SearchRegistry = {}
 
-	local MugiHubGui = Custom:Create("ScreenGui", {
+	local WisnuGui = Custom:Create("ScreenGui", {
 		ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 	}, RunService:IsStudio() and Player.PlayerGui or (gethui and gethui() or cloneref and cloneref(game:GetService("CoreGui")) or game:GetService("CoreGui")))
 
@@ -312,8 +312,8 @@ function MugiHub_Library:CreateWindow(Config)
 		Size = UDim2.new(0, 400, 0, 310),
 		ZIndex = 0,
 		Name = "DropShadowHolder",
-		Position = UDim2.new(0, (MugiHubGui.AbsoluteSize.X // 2 - 400 // 2), 0, (MugiHubGui.AbsoluteSize.Y // 2 - 310 // 2))
-	}, MugiHubGui)
+		Position = UDim2.new(0, (WisnuGui.AbsoluteSize.X // 2 - 400 // 2), 0, (WisnuGui.AbsoluteSize.Y // 2 - 310 // 2))
+	}, WisnuGui)
 
 	local DropShadow = Custom:Create("ImageLabel", {
 		Image = "",
@@ -988,8 +988,8 @@ function MugiHub_Library:CreateWindow(Config)
 		CircleClick(ExitButton, Player:GetMouse().X, Player:GetMouse().Y)
 		task.spawn(function()
 			HideExitConfirm()
-			if MugiHubGui then MugiHubGui:Destroy() end
-			if not MugiHub_Library.Unloaded then MugiHub_Library.Unloaded = true end
+			if WisnuGui then WisnuGui:Destroy() end
+			if not WisnuLib.Unloaded then WisnuLib.Unloaded = true end
 		end)
 	end)
 	Close.Activated:Connect(function()
@@ -2221,4 +2221,4 @@ function MugiHub_Library:CreateWindow(Config)
 	return Funcs
 end
 
-return MugiHub_Library
+return WisnuLib
