@@ -11,7 +11,7 @@ local Custom = {} do
 		ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 255, 255))
 	})
 
-	Custom.DefaultIcon = "rbxassetid://130008176530837"
+	Custom.DefaultIcon = "rbxthumb://type=Asset&id=130008176530837&w=420&h=420"
 
 	function Custom:Create(Name, Properties, Parent)
 		local inst = Instance.new(Name)
@@ -54,7 +54,7 @@ local function OpenClose()
 		BackgroundTransparency = 1,
 		Position = UDim2.new(0.1021, 0, 0.0743, 0),
 		Size = UDim2.new(0, 44, 0, 44),
-		Image = "rbxassetid://130008176530837",
+		Image = "rbxthumb://type=Asset&id=130008176530837&w=420&h=420",
 		Visible = false,
 	}, ScreenGui)
 
