@@ -3,7 +3,6 @@ local Player = Players.LocalPlayer
 local RunService = game:GetService("RunService")
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
-local VirtualUser = game:GetService("VirtualUser")
 
 local Custom = {} do
 	Custom.ColorRGB = Color3.fromRGB(255, 255, 255)
@@ -24,11 +23,7 @@ local Custom = {} do
 	end
 
 	function Custom:EnabledAFK()
-		Player.Idled:Connect(function()
-			VirtualUser:Button2Down(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
-			task.wait(1)
-			VirtualUser:Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
-		end)
+		-- VirtualUser removed (BAC risk)
 	end
 
 	function Custom:AddGradient(inst, Rotation)
