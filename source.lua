@@ -515,7 +515,7 @@ function MugiHub_Library:CreateWindow(Config)
 		BorderSizePixel = 0,
 		Position = UDim2.new(1, -8, 0.5, 0),
 		Size = UDim2.new(0, 30, 0, 26),
-		Name = "Close"
+		Name = "WisnuClose"
 	}, Top)
 	Custom:Create("UICorner", {CornerRadius = UDim.new(0, 5)}, Close)
 
