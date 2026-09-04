@@ -53,7 +53,7 @@ local function OpenClose()
 		BorderColor3 = Color3.fromRGB(255, 0, 0),
 		BackgroundTransparency = 0,
 		Position = UDim2.new(0.1021, 0, 0.0743, 0),
-		Size = UDim2.new(0, 50, 0, 36),
+		Size = UDim2.new(0, 44, 0, 44),
 		Image = "rbxthumb://type=Asset&id=130008176530837&w=420&h=420",
 		Visible = false,
 	}, ScreenGui)
@@ -292,7 +292,7 @@ function MugiHub_Library:CreateWindow(Config)
 	local TabWidth    = Config[3] or Config["Tab Width"] or 105
 	local SizeUi      = Config[4] or Config.SizeUi      or UDim2.fromOffset(480, 275)
 	local Keybind     = Config[5] or Config.Keybind     or Enum.KeyCode.RightControl
-	local Icon        = Config[6] or Config.Icon        or ""
+	local Icon        = Config[6] or Config.Icon        or "rbxthumb://type=Asset&id=130008176530837&w=420&h=420"
 
 	local Funcs = {}
 	local SearchRegistry = {}
