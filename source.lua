@@ -12,7 +12,7 @@ local Custom = {} do
 		ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 255, 255))
 	})
 
-	Custom.DefaultIcon = "rbxassetid://6031229492"
+	Custom.DefaultIcon = "rbxassetid://135368942844516"
 
 	function Custom:Create(Name, Properties, Parent)
 		local inst = Instance.new(Name)
@@ -51,15 +51,15 @@ Custom:EnabledAFK()
 local function OpenClose()
 	local ScreenGui = Custom:Create("ScreenGui", {
 		ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-	}, RunService:IsStudio() and Player.PlayerGui or (gethui and gethui() or cloneref and cloneref(game:GetService("CoreGui")) or game:GetService("CoreGui")))
+	}, Player.PlayerGui)
 
 	local Close_ImageButton = Custom:Create("ImageButton", {
 		BackgroundColor3 = Color3.fromRGB(0, 0, 0),
 		BorderColor3 = Color3.fromRGB(255, 0, 0),
 		BackgroundTransparency = 1,
 		Position = UDim2.new(0.1021, 0, 0.0743, 0),
-		Size = UDim2.new(0, 50, 0, 36),
-		Image = "rbxassetid://80668677085388",
+		Size = UDim2.new(0, 44, 0, 44),
+		Image = "rbxassetid://135368942844516",
 		Visible = false,
 	}, ScreenGui)
 
@@ -148,8 +148,8 @@ local function CircleClick(Button, X, Y)
 	end)
 end
 
-local WisnuLib = {}
-WisnuLib.Unloaded = false
+local MugiHub_Library = {}
+MugiHub_Library.Unloaded = false
 
 local NotifGui
 local NotifContainer
@@ -163,7 +163,7 @@ local function EnsureNotifGui()
 		ZIndexBehavior = Enum.ZIndexBehavior.Sibling,
 		ResetOnSpawn = false,
 		DisplayOrder = 1000,
-	}, RunService:IsStudio() and Player.PlayerGui or (gethui and gethui() or cloneref and cloneref(game:GetService("CoreGui")) or game:GetService("CoreGui")))
+	}, Player.PlayerGui)
 
 	NotifContainer = Custom:Create("Frame", {
 		AnchorPoint = Vector2.new(1, 0),
@@ -182,7 +182,7 @@ local function EnsureNotifGui()
 	}, NotifContainer)
 end
 
-function WisnuLib:SetNotification(Config)
+function MugiHub_Library:SetNotification(Config)
 	EnsureNotifGui()
 
 	local Text  = Config.Content or Config[1] or ""
@@ -291,20 +291,20 @@ function WisnuLib:SetNotification(Config)
 	return NotifFuncs
 end
 
-function WisnuLib:CreateWindow(Config)
+function MugiHub_Library:CreateWindow(Config)
 	local Title       = Config[1] or Config.Title       or ""
 	local Description = Config[2] or Config.Description or ""
 	local TabWidth    = Config[3] or Config["Tab Width"] or 105
 	local SizeUi      = Config[4] or Config.SizeUi      or UDim2.fromOffset(480, 275)
 	local Keybind     = Config[5] or Config.Keybind     or Enum.KeyCode.RightControl
-	local Icon        = Config[6] or Config.Icon        or "rbxassetid://80668677085388"
+	local Icon        = Config[6] or Config.Icon        or "rbxassetid://135368942844516"
 
 	local Funcs = {}
 	local SearchRegistry = {}
 
-	local WisnuGui = Custom:Create("ScreenGui", {
+	local MugiHubGui = Custom:Create("ScreenGui", {
 		ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-	}, RunService:IsStudio() and Player.PlayerGui or (gethui and gethui() or cloneref and cloneref(game:GetService("CoreGui")) or game:GetService("CoreGui")))
+	}, Player.PlayerGui)
 
 	local DropShadowHolder = Custom:Create("Frame", {
 		BackgroundTransparency = 1,
@@ -312,8 +312,8 @@ function WisnuLib:CreateWindow(Config)
 		Size = UDim2.new(0, 400, 0, 310),
 		ZIndex = 0,
 		Name = "DropShadowHolder",
-		Position = UDim2.new(0, (WisnuGui.AbsoluteSize.X // 2 - 400 // 2), 0, (WisnuGui.AbsoluteSize.Y // 2 - 310 // 2))
-	}, WisnuGui)
+		Position = UDim2.new(0, (MugiHubGui.AbsoluteSize.X // 2 - 400 // 2), 0, (MugiHubGui.AbsoluteSize.Y // 2 - 310 // 2))
+	}, MugiHubGui)
 
 	local DropShadow = Custom:Create("ImageLabel", {
 		Image = "",
@@ -492,7 +492,6 @@ function WisnuLib:CreateWindow(Config)
 
 	function TagsFuncs:AddExecutorTag(RefreshInterval)
 		return TagsFuncs:AddDynamic("Executor", function()
-			if identifyexecutor then return identifyexecutor() or "Unknown" end
 			return "Unknown"
 		end, RefreshInterval)
 	end
@@ -733,7 +732,7 @@ function WisnuLib:CreateWindow(Config)
 
 	task.spawn(function()
 		local ok, url = pcall(function()
-			return Players:GetUserThumbnailAsync(Player.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size100x100)
+			return ""
 		end)
 		if ok and url then AvatarImage.Image = url end
 	end)
@@ -988,8 +987,8 @@ function WisnuLib:CreateWindow(Config)
 		CircleClick(ExitButton, Player:GetMouse().X, Player:GetMouse().Y)
 		task.spawn(function()
 			HideExitConfirm()
-			if WisnuGui then WisnuGui:Destroy() end
-			if not WisnuLib.Unloaded then WisnuLib.Unloaded = true end
+			if MugiHubGui then MugiHubGui:Destroy() end
+			if not MugiHub_Library.Unloaded then MugiHub_Library.Unloaded = true end
 		end)
 	end)
 	Close.Activated:Connect(function()
@@ -1110,17 +1109,8 @@ function WisnuLib:CreateWindow(Config)
 		}, Tab)
 
 		task.spawn(function()
-			local ContentProvider = game:GetService("ContentProvider")
-			local ok, status = pcall(function()
-				local s
-				ContentProvider:PreloadAsync({TabIconImg}, function(_, assetFetchStatus)
-					s = assetFetchStatus
-				end)
-				return s
-			end)
-			if not ok or status == Enum.AssetFetchStatus.Failure then
-				TabIconImg.Image = Custom.DefaultIcon
-			end
+			-- ContentProvider preload removed (BAC risk)
+			-- TabIconImg sudah set imagenya langsung
 		end)
 
 		local function SelectTab()
@@ -2221,4 +2211,4 @@ function WisnuLib:CreateWindow(Config)
 	return Funcs
 end
 
-return WisnuLib
+return MugiHub_Library
