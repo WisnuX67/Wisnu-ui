@@ -297,7 +297,7 @@ function WisnuLib:CreateWindow(Config)
 	local TabWidth    = Config[3] or Config["Tab Width"] or 105
 	local SizeUi      = Config[4] or Config.SizeUi      or UDim2.fromOffset(480, 275)
 	local Keybind     = Config[5] or Config.Keybind     or Enum.KeyCode.RightControl
-	local Icon        = Config[6] or Config.Icon        or "rbxassetid://135368942844516"
+	local Icon        = Config[6] or Config.Icon        or "rbxassetid://80668677085388"
 
 	local Funcs = {}
 	local SearchRegistry = {}
