@@ -51,9 +51,9 @@ local function OpenClose()
 	local Close_ImageButton = Custom:Create("ImageButton", {
 		BackgroundColor3 = Color3.fromRGB(0, 0, 0),
 		BorderColor3 = Color3.fromRGB(255, 0, 0),
-		BackgroundTransparency = 1,
+		BackgroundTransparency = 0,
 		Position = UDim2.new(0.1021, 0, 0.0743, 0),
-		Size = UDim2.new(0, 44, 0, 44),
+		Size = UDim2.new(0, 50, 0, 36),
 		Image = "rbxthumb://type=Asset&id=130008176530837&w=420&h=420",
 		Visible = false,
 	}, ScreenGui)
@@ -1092,7 +1092,7 @@ function MugiHub_Library:CreateWindow(Config)
 		}, Tab)
 
 		local TabIconImg = Custom:Create("ImageLabel", {
-			Image = Icon,
+			Image = "", -- tab no icon
 			BackgroundTransparency = 1,
 			BorderSizePixel = 0,
 			AnchorPoint = Vector2.new(0, 0.5),
