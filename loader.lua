@@ -12,7 +12,13 @@ local scriptURL = games[game.GameId] or games[game.PlaceId]
 
 if scriptURL then
     print("[WisnuX] Loading for GameId=" .. tostring(game.GameId))
-    loadstring(game:HttpGet(scriptURL))()
+    local src = game:HttpGet(scriptURL)
+    local fn = loadstring or load
+    if fn then
+        fn(src)()
+    else
+        warn("[WisnuX] loadstring not available")
+    end
 else
     warn("[WisnuX] Game not supported. GameId=" .. tostring(game.GameId) .. " PlaceId=" .. tostring(game.PlaceId))
 end
