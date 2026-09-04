@@ -1180,11 +1180,16 @@ function MugiHub_Library:CreateWindow(Config)
 				Size = UDim2.new(0, 20, 0, 20), Name = "FeatureFrame"
 			}, SectionReal)
 
-			local FeatureImg = Custom:Create("ImageLabel", {
-				Image = "",
-				AnchorPoint = Vector2.new(0.5, 0.5), BackgroundTransparency = 0.999,
-				BorderSizePixel = 0, Position = UDim2.new(0.5, 0, 0.5, 0),
-				Rotation = -90, Size = UDim2.new(1, 6, 1, 6), Name = "FeatureImg"
+			local FeatureImg = Custom:Create("TextLabel", {
+				Text = "▶",
+				Font = Enum.Font.GothamBold,
+				TextColor3 = Color3.fromRGB(255, 255, 255),
+				TextSize = 10,
+				BackgroundTransparency = 0.999,
+				BorderSizePixel = 0,
+				AnchorPoint = Vector2.new(0.5, 0.5),
+				Position = UDim2.new(0.5, 0, 0.5, 0),
+				Rotation = -90, Size = UDim2.new(1, 0, 1, 0), Name = "FeatureImg"
 			}, FeatureFrame)
 
 			Custom:Create("TextLabel", {
