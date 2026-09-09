@@ -1652,8 +1652,8 @@ function MugiHub_Library:CreateWindow(Config)
 					IC.TextWrapped = false; UpdateI(); IC.TextWrapped = true; UpdateSizeSection()
 				end)
 				local IF2 = Custom:Create("Frame", {
-					AnchorPoint = Vector2.new(1, 0.5), BackgroundColor3 = Color3.fromRGB(255, 255, 255),
-					BackgroundTransparency = 0.95, BorderSizePixel = 0, ClipsDescendants = true,
+					AnchorPoint = Vector2.new(1, 0.5), BackgroundColor3 = Color3.fromRGB(15, 15, 15),
+					BackgroundTransparency = 0, BorderSizePixel = 0, ClipsDescendants = true,
 					Position = UDim2.new(1, -7, 0.5, 0), Size = UDim2.new(0, 148, 0, 30), Name = "InputFrame"
 				}, I)
 				Custom:Create("UICorner", {CornerRadius = UDim.new(0, 4)}, IF2)
@@ -1724,8 +1724,8 @@ function MugiHub_Library:CreateWindow(Config)
 				end)
 
 				local SOF = Custom:Create("Frame", {
-					AnchorPoint = Vector2.new(1, 0.5), BackgroundColor3 = Color3.fromRGB(255, 255, 255),
-					BackgroundTransparency = 0.95, BorderSizePixel = 0,
+					AnchorPoint = Vector2.new(1, 0.5), BackgroundColor3 = Color3.fromRGB(15, 15, 15),
+					BackgroundTransparency = 0, BorderSizePixel = 0,
 					Position = UDim2.new(1, -7, 0.5, 0), Size = UDim2.new(0, 148, 0, 30),
 					Name = "SelectOptionsFrame", LayoutOrder = CountDropdown
 				}, D)
